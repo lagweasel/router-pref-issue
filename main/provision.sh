@@ -9,5 +9,5 @@ cp /vagrant/main/netplan/* /etc/netplan/
 chmod 600 /etc/netplan/50-netcfg.yaml
 netplan apply
 
-#apt-get update
-#apt-get install -y radvdump traceroute
+apt-get update
+apt-get install -y radvdump

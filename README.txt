@@ -33,16 +33,16 @@ Steps to reproduce problem
     ./enable-h.sh
     Expected result: radv_h: enabled
 
-3. Verify 'high' preference default gateway (address ends with :1) is used for IPv6 pings from main VM
+4. Verify 'high' preference default gateway (address ends with :1) is used for IPv6 pings from main VM
     ./test-ping.sh
     Expected result: From fd00:a:b:c::1 icmp_seq=1 Destination unreachable: No route
     (Note this response is from ":1" router.)
 
-4. Enable Router Advertisements on 'medium' preference default gateway (address ends with :2)
+5. Enable Router Advertisements on 'medium' preference default gateway (address ends with :2)
     ./enable-m.sh
     Expected result: radv_m: enabled
 
-5. Run test to see whether 'high' or 'medium' preference default gateway is used for IPv6 pings from main VM
+6. Run test to see whether 'high' or 'medium' preference default gateway is used for IPv6 pings from main VM
     ./test-ping.sh
     Expected result: From fd00:a:b:c::1 icmp_seq=1 Destination unreachable: No route
     Actual result:   From fd00:a:b:c::2 icmp_seq=1 Destination unreachable: No route
@@ -75,6 +75,8 @@ These scripts can be run on the host, to control/interact with the VMs:
 ./disable-m.sh: disable 'medium' preference router advertisements (sends 0-lifetime RA to expire previous advertisements)
 ./test-ping.sh: send test ping from 'main' VM
 ./show-route.sh: show IPv6 route info from 'main' VM (runs 'ip -6 route' in main VM)
+./show-journal.sh: show the journal for systemd-networkd (has debug logging enabled)
+./monitor-radv.sh: run radvdump on main VM to show router advertisements received by main VM (in realtime / needs to be left running for a while to show stuff)
 
 
 Final cleanup
