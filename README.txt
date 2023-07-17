@@ -75,7 +75,7 @@ These scripts can be run on the host, to control/interact with the VMs:
 ./disable-m.sh: disable 'medium' preference router advertisements (sends 0-lifetime RA to expire previous advertisements)
 ./test-ping.sh: send test ping from 'main' VM
 ./show-route.sh: show IPv6 route info from 'main' VM (runs 'ip -6 route' in main VM)
-./show-journal.sh: show the journal for systemd-networkd (has debug logging enabled)
+./show-journal.sh: show the journal for systemd-networkd from 'main' VM (has debug logging enabled)
 ./monitor-radv.sh: run radvdump on main VM to show router advertisements received by main VM (in realtime / needs to be left running for a while to show stuff)
 
 
