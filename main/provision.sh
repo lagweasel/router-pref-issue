@@ -11,3 +11,5 @@ netplan apply
 
 apt-get update
 apt-get install -y radvdump
+
+systemctl --version

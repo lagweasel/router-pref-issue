@@ -14,8 +14,9 @@ Summary of VMs in this solution
 "main": Ubuntu VM that demonstrates the problem (by running ping tests) 
 "router_h": VM for sending 'high' preference default gateway router advertisements (uses bird2 for RA)
 "router_m": VM for sending 'medium' preference default gateway router advertisements (uses bird2 for RA)
+"fix": Ubuntu VM with fix candidate built/installed (as part of provisioning)
 
-All three VMs are connected via an 'internal' network that is isolated from the host/physical network.
+All VMs are connected via an 'internal' network that is isolated from the host/physical network.
 
 
 Steps to reproduce problem
@@ -75,8 +76,11 @@ These scripts can be run on the host, to control/interact with the VMs:
 ./disable-m.sh: disable 'medium' preference router advertisements (sends 0-lifetime RA to expire previous advertisements)
 ./test-ping.sh: send test ping from 'main' VM
 ./show-route.sh: show IPv6 route info from 'main' VM (runs 'ip -6 route' in main VM)
+./show-route-fix.sh: show IPv6 route info from 'fix' VM (runs 'ip -6 route' in fix VM)
 ./show-journal.sh: show the journal for systemd-networkd from 'main' VM (has debug logging enabled)
 ./monitor-radv.sh: run radvdump on main VM to show router advertisements received by main VM (in realtime / needs to be left running for a while to show stuff)
+./show-systemd-version.sh: show systemd version from 'main' VM
+./show-systemd-version-fix.sh: show systemd version from 'fix' VM (to verify that patch has been built/installed)
 
 
 Final cleanup
