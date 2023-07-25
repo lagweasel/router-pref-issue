@@ -13,7 +13,7 @@ apt-get update
 apt-get install -y radvdump
 
 # install build prerequisites
-apt-get install -y meson gperf libcap-dev libpcap-dev cmake libmount-dev
+apt-get install -y meson gperf libcap-dev libpcap-dev libmount-dev
 
 # clone repo / fix branch and build / install / restart etc.
 if [ ! -d systemd ]; then
