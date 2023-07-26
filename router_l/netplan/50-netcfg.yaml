@@ -1,0 +1,10 @@
+network:
+  version: 2
+  ethernets:
+    enp0s8:
+      accept-ra: false
+      addresses:
+      - 192.168.200.3/24
+      - fd00:a:b:c::3/64
+      - fe80::3/64
+      link-local: [] # static link-local address defined above
