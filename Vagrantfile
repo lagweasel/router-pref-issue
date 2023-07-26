@@ -24,4 +24,10 @@ Vagrant.configure("2") do |config|
     router_m.vm.provision "shell", path: "router_m/provision.sh"
   end
 
+  config.vm.define "router_l" do |router_l|
+    router_l.vm.hostname = "router-l"
+    router_l.vm.network "private_network", virtualbox__intnet: "radvtest1", auto_config: false
+    router_l.vm.provision "shell", path: "router_l/provision.sh"
+  end
+
 end
