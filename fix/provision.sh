@@ -18,7 +18,7 @@ apt-get install -y meson gperf libcap-dev libpcap-dev libmount-dev
 # clone repo / fix branch and build / install / restart etc.
 if [ ! -d systemd ]; then
     echo Cloning ssahani/systemd
-    git clone -b ndisc-28426 https://github.com/ssahani/systemd.git
+    git clone --progress --branch ndisc-28426 https://github.com/ssahani/systemd.git
 fi
 cd systemd
 git pull
